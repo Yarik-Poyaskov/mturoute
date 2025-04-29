@@ -3,7 +3,7 @@
 # color
 RED='\e[31m'
 GREEN='\e[32m'
-NC='\e[0m' # Сброс цвета
+NC='\e[0m' # Reset color
 
 # settings
 TARGET="$1"
@@ -42,7 +42,7 @@ for HOP in "${HOPS[@]}"; do
     while (( LOW <= HIGH )); do
         MID=$(( (LOW + HIGH) / 2 ))
 
-        # Пингуем
+        # run ping
         if timeout 1 ping -M do -c 1 -s $((MID - 28)) "$HOP" > /dev/null 2>&1; then
             MTU=$MID
             LOW=$((MID + 1))
